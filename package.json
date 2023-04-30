@@ -8,7 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
-    "@ds-pack/daisyui": "^0.0.5",
+    "@babel/standalone": "^7.21.7",
+    "@ds-pack/daisyui": "latest",
     "@ds-pack/use-refs": "*",
     "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.14",

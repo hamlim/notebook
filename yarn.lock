@@ -14,16 +14,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ds-pack/daisyui@npm:^0.0.5":
-  version: 0.0.5
-  resolution: "@ds-pack/daisyui@npm:0.0.5"
+"@babel/standalone@npm:^7.21.7":
+  version: 7.21.7
+  resolution: "@babel/standalone@npm:7.21.7"
+  checksum: 0a2bf1d9946b64c9269abecca7835836e45057350961a1a8605da6253a1e91c24337018e2058c2266d3c8c4ab7c16b0d5a59b03466fe3c9cbc4a6548d009b3bd
+  languageName: node
+  linkType: hard
+
+"@ds-pack/daisyui@npm:latest":
+  version: 0.0.10
+  resolution: "@ds-pack/daisyui@npm:0.0.10"
   peerDependencies:
     "@ds-pack/use-refs": "*"
     daisyui: "*"
     nanopop: ^2
     react: "*"
     react-dom: "*"
-  checksum: cb6e305e9c492d2f5c7562a80abd4484dbaf6ef3e12a222b5af3a8a0e8c9af032239f47fe2b83f1d1575920921183106188f517bd9080afcce55c8efbd98b0d9
+  checksum: ae19139d2594b329379ec2c6293c38299381e58df99378e65d795d9c63c532e81bd01d0ffea46b71c3ff86d0a56ba339b80a95f25456401dcf3579a18cedb2a9
   languageName: node
   linkType: hard
 
@@ -3273,7 +3280,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "template-next-app@workspace:."
   dependencies:
-    "@ds-pack/daisyui": ^0.0.5
+    "@babel/standalone": ^7.21.7
+    "@ds-pack/daisyui": latest
     "@ds-pack/use-refs": "*"
     "@tailwindcss/typography": ^0.5.9
     "@types/node": ^16.11.36

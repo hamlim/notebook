@@ -1,8 +1,13 @@
-import Greeting from '@lib/Greeting'
+import { Box } from '@ds-pack/daisyui'
+import Editor from './Editor'
 
 export default function Index() {
-  return <Greeting>Hello! 👋</Greeting>
+  return (
+    <Box className="container">
+      <Editor />
+    </Box>
+  )
 }
 
-export const revalidate = 0
-export const dynamic = 'force-dynamic'
+export let revalidate = 0
+export let dynamic = 'force-dynamic'
