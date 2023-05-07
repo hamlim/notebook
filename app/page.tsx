@@ -3,7 +3,7 @@ import Editor from './Editor'
 
 export default function Index() {
   return (
-    <Box className="container">
+    <Box className="container mx-auto">
       <Editor />
     </Box>
   )

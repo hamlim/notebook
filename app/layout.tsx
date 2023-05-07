@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import '@styles/globals.css'
 
 export default function Layout({ children }) {
@@ -16,7 +16,7 @@ export default function Layout({ children }) {
 }
 
 export let metadata: Metadata = {
-  title: 'Template Next App',
+  title: 'Notebook',
   icons: [
     {
       url: '/favicon.ico',

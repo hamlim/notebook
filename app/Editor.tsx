@@ -6,16 +6,19 @@ import { transform } from './transform'
 function Eval({ code, scope }) {
   let [result, setResult] = useState('')
   let [err, setErr] = useState(null)
+  let [debug, setDebug] = useState({})
 
   useEffect(() => {
     let isActive = true
     transform(code, scope.getIdentifiers())
       .then(({ transformed, newIdentifiers }) => {
         if (!isActive) return
+        setDebug({ transformed, newIdentifiers })
         scope.addIdentifiers(newIdentifiers)
         setResult(transformed)
       })
       .catch((e) => {
+        setDebug({ error: e })
         setErr(e)
       })
     return () => {
@@ -26,6 +29,9 @@ function Eval({ code, scope }) {
   if (!result) {
     return <Box>Waiting...</Box>
   }
+
+  console.log(debug)
+
   if (err) {
     return (
       <>

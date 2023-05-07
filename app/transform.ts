@@ -3,7 +3,7 @@ import { transform as babelTransform, registerPlugin } from '@babel/standalone'
 import { cache } from 'react'
 
 function referenceToGlobalIdentifier(referenceName: string): string {
-  return `globalThis.__scope__${referenceName}`
+  return `__scope__${referenceName}`
 }
 
 let getBabel = cache(async (ids) => {
@@ -25,8 +25,25 @@ let getBabel = cache(async (ids) => {
                 ),
               )
             }
+          } else {
+            // add global scope identifier assignment following the variable declaration
+            if (path.parent.type === 'VariableDeclarator') {
+              let identifier = path.node.name
+              let globalIdentifier = referenceToGlobalIdentifier(identifier)
+              path.parentPath.insertAfter(
+                t.expressionStatement(
+                  t.assignmentExpression(
+                    '=',
+                    t.memberExpression(
+                      t.identifier('globalThis'),
+                      t.identifier(globalIdentifier),
+                    ),
+                    t.identifier(identifier),
+                  ),
+                ),
+              )
+            }
           }
-          path.node.name = 'LOL'
         },
       },
     }
@@ -57,8 +74,7 @@ export async function transform(
 
   let babel = await getBabel(previousIdentifiers)
 
-  let transformed = babel(`console.log('yo!');
-${lines.join('\n')}`)
+  let transformed = babel(`${lines.join('\n')}`)
 
   return {
     transformed,
