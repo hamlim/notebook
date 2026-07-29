@@ -17,7 +17,7 @@
     "eslint-config-next": "latest",
     "nanopop": "2.1.0",
     "next": "canary",
-    "postcss": "^8.5.10",
+    "postcss": "^8.5.18",
     "react": "experimental",
     "react-dom": "experimental",
     "tailwindcss": "^3.3.1"
